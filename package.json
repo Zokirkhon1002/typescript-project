@@ -4,13 +4,20 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview"
+    "dev-auto": "rimraf dev-dist && cross-env DEBUG=vite-plugin-pwa:* SW_DEV=true SW_INLINE=auto vite --force", 
+    "dev-inline": "rimraf dev-dist && cross-env DEBUG=vite-plugin-pwa:* SW_DEV=true SW_INLINE=inline vite --force", 
+    "dev-script": "rimraf dev-dist && cross-env DEBUG=vite-plugin-pwa:* SW_DEV=true SW_INLINE=script vite --force", 
+    "dev-auto-destroy": "rimraf dev-dist && cross-env DEBUG=vite-plugin-pwa:* SW_DEV=true SW_DESTROY=true SW_INLINE=auto vite --force", 
+    "dev-inline-destroy": "rimraf dev-dist && cross-env DEBUG=vite-plugin-pwa:* SW_DEV=true SW_DESTROY=true SW_INLINE=inline vite --force", 
+    "dev-script-destroy": "rimraf dev-dist && cross-env DEBUG=vite-plugin-pwa:* SW_DEV=true SW_DESTROY=true SW_INLINE=script vite --force", 
+    "build": "cross-env DEBUG=vite-plugin-pwa:* vite build", 
+    "serve": "serve dist"
   },
   "devDependencies": {
     "typescript": "^4.9.3",
     "vite-plugin-pwa":"0.14.1",
-    "vite": "^4.1.0"
+    "vite": "^4.1.0",
+    "cross-env": "^7.0.3", 
+    "rimraf": "^3.0.2"
   }
 }
