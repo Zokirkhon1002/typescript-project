@@ -4,20 +4,22 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev-auto": "rimraf dev-dist && cross-env DEBUG=vite-plugin-pwa:* SW_DEV=true SW_INLINE=auto vite --force", 
-    "dev-inline": "rimraf dev-dist && cross-env DEBUG=vite-plugin-pwa:* SW_DEV=true SW_INLINE=inline vite --force", 
-    "dev-script": "rimraf dev-dist && cross-env DEBUG=vite-plugin-pwa:* SW_DEV=true SW_INLINE=script vite --force", 
-    "dev-auto-destroy": "rimraf dev-dist && cross-env DEBUG=vite-plugin-pwa:* SW_DEV=true SW_DESTROY=true SW_INLINE=auto vite --force", 
-    "dev-inline-destroy": "rimraf dev-dist && cross-env DEBUG=vite-plugin-pwa:* SW_DEV=true SW_DESTROY=true SW_INLINE=inline vite --force", 
-    "dev-script-destroy": "rimraf dev-dist && cross-env DEBUG=vite-plugin-pwa:* SW_DEV=true SW_DESTROY=true SW_INLINE=script vite --force", 
-    "build": "cross-env DEBUG=vite-plugin-pwa:* vite build", 
+    "dev": "rimraf dev-dist && cross-env DEBUG=vite-plugin-pwa:* SW_DEV=true vite --force",
+    "run-build-sw": "cross-env DEBUG=vite-plugin-pwa:* BASE_URL=/ SOURCE_MAP=true vite build",
+    "start-sw": "npm run run-build-sw && npm run serve",
     "serve": "serve dist"
   },
   "devDependencies": {
     "typescript": "^4.9.3",
-    "vite-plugin-pwa":"0.14.1",
     "vite": "^4.1.0",
-    "cross-env": "^7.0.3", 
-    "rimraf": "^3.0.2"
+    "vite-plugin-pwa": "^0.14.1",
+    "cross-env": "^7.0.3",
+    "rimraf": "^3.0.2",
+    "workbox-cacheable-response": "^6.5.4",
+    "workbox-core": "^6.5.4",
+    "workbox-expiration": "^6.5.4",
+    "workbox-routing": "^6.5.4",
+    "workbox-strategies": "^6.5.4",
+    "workbox-window": "^6.5.4"
   }
 }

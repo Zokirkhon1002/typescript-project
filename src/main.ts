@@ -1,5 +1,3 @@
-
-
 import './styles/style.css';
 import FullList from './models/FullList';
 import ListItem from './models/ListItem';
